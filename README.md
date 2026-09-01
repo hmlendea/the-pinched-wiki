@@ -16,6 +16,13 @@ The script prompts once, at the beginning, for:
 - SSH username
 - SSH password
 
+Optional CLI arguments can pre-populate connection details:
+- `--hostname`
+- `--port`
+- `--username`
+
+When these arguments are supplied, the script does not prompt for those specific fields. The SSH password is always prompted interactively.
+
 Remote content path:
 - `/home/${USERNAME}/db/nucicraft-wiki/data/documents/`
 
@@ -24,6 +31,7 @@ Remote content path:
 ```bash
 chmod +x scripts/synchronise_wiki_content.sh
 ./scripts/synchronise_wiki_content.sh
+./scripts/synchronise_wiki_content.sh --hostname wiki.example.com --port 22 --username alice
 ```
 
 ### Dependencies

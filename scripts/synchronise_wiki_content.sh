@@ -21,12 +21,65 @@ validate_dependencies() {
     fi
 }
 
-prompt_connection_details() {
-    read -r -p 'SSH hostname: ' SSH_HOSTNAME
-    read -r -p 'SSH port: ' SSH_PORT
-    read -r -p 'SSH username: ' SSH_USERNAME
+print_usage() {
+    echo 'Usage: ./scripts/synchronise_wiki_content.sh [--hostname HOSTNAME] [--port PORT] [--username USERNAME]'
+}
+
+parse_arguments() {
+    while [[ $# -gt 0 ]]; do
+        case "${1}" in
+            --hostname)
+                if [[ $# -lt 2 ]]; then
+                    print_error_and_exit 'The --hostname argument requires a value.'
+                fi
+                SSH_HOSTNAME="${2}"
+                shift 2
+                ;;
+            --port)
+                if [[ $# -lt 2 ]]; then
+                    print_error_and_exit 'The --port argument requires a value.'
+                fi
+                SSH_PORT="${2}"
+                shift 2
+                ;;
+            --username)
+                if [[ $# -lt 2 ]]; then
+                    print_error_and_exit 'The --username argument requires a value.'
+                fi
+                SSH_USERNAME="${2}"
+                shift 2
+                ;;
+            --help)
+                print_usage
+                exit 0
+                ;;
+            *)
+                print_error_and_exit "Unknown argument: ${1}. Use --help for usage information."
+                ;;
+        esac
+    done
+}
+
+prompt_missing_connection_details() {
+    if [[ -z "${SSH_HOSTNAME}" ]]; then
+        read -r -p 'SSH hostname: ' SSH_HOSTNAME
+    fi
+
+    if [[ -z "${SSH_PORT}" ]]; then
+        read -r -p 'SSH port: ' SSH_PORT
+    fi
+
+    if [[ -z "${SSH_USERNAME}" ]]; then
+        read -r -p 'SSH username: ' SSH_USERNAME
+    fi
+}
+
+prompt_password() {
     read -r -s -p 'SSH password: ' SSH_PASSWORD
     echo
+}
+
+validate_connection_details() {
 
     if [[ -z "${SSH_HOSTNAME}" ]]; then
         print_error_and_exit 'Hostname cannot be empty.'
@@ -95,7 +148,10 @@ main() {
     local REMOTE_CONTENT_DIRECTORY=''
 
     validate_dependencies
-    prompt_connection_details
+    parse_arguments "$@"
+    prompt_missing_connection_details
+    prompt_password
+    validate_connection_details
     determine_paths
     validate_local_content_directory
 
