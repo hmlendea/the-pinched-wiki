@@ -22,29 +22,29 @@ validate_dependencies() {
 }
 
 print_usage() {
-    echo 'Usage: ./scripts/synchronise_wiki_content.sh [--hostname HOSTNAME] [--port PORT] [--username USERNAME]'
+    echo 'Usage: ./scripts/synchronise_wiki_content.sh [--hostname HOSTNAME|-h HOSTNAME] [--port PORT|-p PORT] [--username USERNAME|--user USERNAME|-u USERNAME]'
 }
 
 parse_arguments() {
     while [[ $# -gt 0 ]]; do
         case "${1}" in
-            --hostname)
+            --hostname|-h)
                 if [[ $# -lt 2 ]]; then
-                    print_error_and_exit 'The --hostname argument requires a value.'
+                    print_error_and_exit 'The --hostname/-h argument requires a value.'
                 fi
                 SSH_HOSTNAME="${2}"
                 shift 2
                 ;;
-            --port)
+            --port|-p)
                 if [[ $# -lt 2 ]]; then
-                    print_error_and_exit 'The --port argument requires a value.'
+                    print_error_and_exit 'The --port/-p argument requires a value.'
                 fi
                 SSH_PORT="${2}"
                 shift 2
                 ;;
-            --username)
+            --username|--user|-u)
                 if [[ $# -lt 2 ]]; then
-                    print_error_and_exit 'The --username argument requires a value.'
+                    print_error_and_exit 'The --username/--user/-u argument requires a value.'
                 fi
                 SSH_USERNAME="${2}"
                 shift 2
@@ -68,9 +68,15 @@ prompt_missing_connection_details() {
     if [[ -z "${SSH_PORT}" ]]; then
         read -r -p 'SSH port: ' SSH_PORT
     fi
+}
+
+default_username_if_missing() {
+    if [[ -z "${SSH_USERNAME}" ]]; then
+        SSH_USERNAME="${USER:-}"
+    fi
 
     if [[ -z "${SSH_USERNAME}" ]]; then
-        read -r -p 'SSH username: ' SSH_USERNAME
+        SSH_USERNAME="$(id -un)"
     fi
 }
 
@@ -149,6 +155,7 @@ main() {
 
     validate_dependencies
     parse_arguments "$@"
+    default_username_if_missing
     prompt_missing_connection_details
     prompt_password
     validate_connection_details

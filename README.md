@@ -13,15 +13,14 @@ The script performs bidirectional synchronisation based on modification timestam
 The script prompts once, at the beginning, for:
 - SSH hostname
 - SSH port
-- SSH username
 - SSH password
 
 Optional CLI arguments can pre-populate connection details:
-- `--hostname`
-- `--port`
-- `--username`
+- `--hostname` or `-h`
+- `--port` or `-p`
+- `--username`, `--user`, or `-u`
 
-When these arguments are supplied, the script does not prompt for those specific fields. The SSH password is always prompted interactively.
+When `--username` is not supplied, the script defaults to the current local username. When `--hostname` or `--port` are omitted, the script prompts for those values. The SSH password is always prompted interactively.
 
 Remote content path:
 - `/home/${USERNAME}/db/nucicraft-wiki/data/documents/`
@@ -32,6 +31,7 @@ Remote content path:
 chmod +x scripts/synchronise_wiki_content.sh
 ./scripts/synchronise_wiki_content.sh
 ./scripts/synchronise_wiki_content.sh --hostname wiki.example.com --port 22 --username alice
+./scripts/synchronise_wiki_content.sh -h wiki.example.com -p 22 --user alice
 ```
 
 ### Dependencies
