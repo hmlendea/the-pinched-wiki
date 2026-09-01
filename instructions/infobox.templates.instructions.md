@@ -1,13 +1,13 @@
 # Infobox Template Instructions
 
 ## Scope
-These instructions document how infoboxes should be handled in the wiki content, while also recording relevant legacy repository patterns.
+These instructions document how infoboxes should be handled within the wiki content and record relevant legacy repository patterns.
 
 Observed repository state:
-- Most content pages begin with an infobox table directly below the page heading.
+- Most content pages start with an infobox table directly below the page heading.
 - The infobox type is defined by the first cell of the first table row.
-- Two pages currently have no infobox at all: `content/nucicraft/document.md` and `content/tesa_river/document.md`.
-- Two pages currently use an untyped infobox, where the first header cell is blank: `content/crown_of_nucilandia/document.md` and `content/great_walnut/document.md`.
+- Two pages presently have no infobox: `content/nucicraft/document.md` and `content/tesa_river/document.md`.
+- Two pages presently use an untyped infobox, where the first header cell is empty: `content/crown_of_nucilandia/document.md` and `content/great_walnut/document.md`.
 
 ## Infobox-Derived Category Rules
 Category membership is mandatory for pages with typed infoboxes.
@@ -16,8 +16,8 @@ General rules:
 - The category footer must remain ordered from most specific to most generic.
 - Required categories are derived from the infobox values, not from arbitrary manual choice.
 - If a rule below requires a `Country` category and the relevant infobox property contains multiple countries, include the matching per-country and country-name categories for each linked country.
-- If a required specific or per-country category does not yet exist, create or restore that category page before treating the page as complete.
-- Legacy pages may currently be missing some of these categories, but new and revised pages must satisfy the rules below.
+- If a required specific or per-country category does not yet exist, create or reinstate that category page before treating the page as complete.
+- Legacy pages may presently be missing some of these categories, but new and revised pages must satisfy the rules below.
 
 Category derivation rules by infobox family:
 - `Settlement`: require the settlement subtype category, the settlement subtype per-country category when the country is identifiable, `Settlements`, `Settlements in [Country]`, `Locations`, `Locations in [Country]`, and `[Country]`.
@@ -28,7 +28,7 @@ Category derivation rules by infobox family:
 - `Ethnic Group`: require `Ethnic Groups` and any more specific ethnonym or people-group category when the page defines one.
 - `Time Zone`: require `Time Zones`, `Time Zones in [Country]` when countries are listed, and `[Country]`.
 - `Language`: require `Languages`, `Languages in [Country]` when countries are listed, and `[Country]`.
-- `Religion`: require `Religions` and any broader thematic religion category used by the repository, such as `Religion`.
+- `Religion`: require `Religions` and any more general thematic religion category used by the repository, such as `Religion`.
 - `Currency`: require `Currencies`, `Currencies in [Country]` when applicable, and `[Country]`.
 - `Flag`: require `Flags`, `Flags in [Country]`, any additional specific category family such as `Heraldry` and `Heraldry in [Country]` when the page belongs there, and `[Country]`.
 - `Deity`: require `Deities`, `Deities in [Religion]`, `Religion`, and `[Religion]`.
@@ -44,7 +44,7 @@ The baseline infobox structure is:
 | **Property** | Value |
 ```
 
-Formatting conventions currently used:
+Formatting conventions presently used:
 - The infobox is the first table in the document.
 - The header row has exactly two cells.
 - The first header cell contains the infobox type, usually as a category link.
@@ -62,7 +62,7 @@ Formatting conventions currently used:
   - `Label *(qualifier)*` for role or date annotations.
 
 ## Naming And Value Conventions
-Conventions currently visible across infoboxes:
+Conventions presently visible across infoboxes:
 - Settlement and territorial pages usually use title case property names such as `Nickname`, `Demonym`, `Location`, `Leader`, `Foundation`.
 - Country pages use mixed naming, including linked labels such as `[Flag](/flag_of_nucilandia)` and `[Time Zone](https://en.wikipedia.org/wiki/Time_zone)`.
 - Population rows often encode the snapshot date in the property label itself, for example `**Population** *(2024)*` or `**Population** *(2026-08-21)*`.
@@ -75,7 +75,7 @@ Conventions currently visible across infoboxes:
 - Alternate-language names in the title cell are commonly italicised and may be placed after a `<br>`.
 
 ## Typed Infobox Inventory
-Distinct typed infobox labels currently present in first header cells:
+Distinct typed infobox labels presently present in first header cells:
 - `[Institution](/categories/institutions)`
 - `[Settlement](/categories/settlements)`
 - `[Country](/categories/countries)`
@@ -93,7 +93,7 @@ Distinct typed infobox labels currently present in first header cells:
 - `[Book](/categories/books)`
 - `[Ethnic Group](/categories/ethnic_groups)`
 
-Legacy typed label variants currently present:
+Legacy typed label variants presently present:
 - `[Castles](/categories/castles)` on `content/horidava/document.md`
 - `[Companies](/categories/companies)` on `content/imhe_incorporated/document.md`
 
@@ -184,7 +184,7 @@ Canonical property order:
 19. `Voting system`
 20. `Last election`
 21. `Next election`
-22. `Colors`
+22. `Colours`
 
 Mandatory in all current institution pages:
 - `Type`
@@ -198,8 +198,8 @@ Common optional rows:
 - `Headquarters`
 - `Leader`
 
-Subtype-specific optional rows currently used:
-- `Motto`, `Region Served`, `Official Language`, `Eligibility`, `Purpose`, `Colors`
+Subtype-specific optional rows presently used:
+- `Motto`, `Region Served`, `Official Language`, `Eligibility`, `Purpose`, `Colours`
 - `Appointed by`, `Responsible to`
 - `Speaker`, `Structure`, `Length of term`, `Voting system`, `Last election`, `Next election`
 
@@ -208,7 +208,7 @@ Value conventions:
 - `Headquarters` usually uses `Settlement, Country` order with wiki links.
 - `Established` may include founders in parentheses.
 - Multi-holder leadership stacks entries with `<br>`.
-- `Colors` are always rendered with coloured squares via inline HTML plus a textual colour name or code.
+- `Colours` are always rendered with coloured squares via inline HTML plus a textual colour name or code.
 
 Mandatory categories:
 - `Institutions`
@@ -235,7 +235,7 @@ Canonical property order:
 10. `[Palatines](/palatine)`
 11. `Position`
 12. `Ideology`
-13. `Colors`
+13. `Colours`
 14. `Slogan`
 
 Mandatory in all current political party pages:
@@ -253,12 +253,12 @@ Optional in current political party pages:
 - `Members`
 - `Seats in the [Șuetă](/sueta)`
 - `[Palatines](/palatine)`
-- `Colors`
+- `Colours`
 - `Slogan`
 
 Value conventions:
 - `Leader` may contain multiple officeholders separated by `<br>`.
-- `Position` is lower-case ideological placement, for example `center-left`.
+- `Position` is lower-case ideological placement, for example `centre-left`.
 - `Ideology` is usually stacked with `<br>`.
 - `Slogan` may contain multilingual variants using `**RO:**` and `**EN:**` prefixes.
 
@@ -300,7 +300,7 @@ Common optional rows:
 - `Political Party`
 - `Main Residence`
 
-Other optional rows currently used:
+Other optional rows presently used:
 - `Current Offices`
 - `Main Office`
 - `Family`
@@ -360,7 +360,7 @@ Canonical property order:
 5. `Official in`
 
 Mandatory in current usage:
-- All observed rows are currently present in the only religion infobox.
+- All observed rows are presently present in the only religion infobox.
 
 Value conventions:
 - `Official in` points to one or more states or territories.
@@ -368,7 +368,7 @@ Value conventions:
 
 Mandatory categories:
 - `Religions`
-- Any broader religion umbrella category used by the repository, such as `Religion`
+- Any more general religion umbrella category used by the repository, such as `Religion`
 
 ## Language Infobox
 Header type:
@@ -384,7 +384,7 @@ Canonical property order:
 4. `Script`
 
 Mandatory in current usage:
-- All observed rows are currently present in the only language infobox.
+- All observed rows are presently present in the only language infobox.
 
 Value conventions:
 - `Name` stores the endonym or alternate self-name, not a repetition of the page title.
@@ -414,7 +414,7 @@ Canonical property order:
 8. `Country`
 
 Mandatory in current usage:
-- All observed rows are currently present in the only currency infobox.
+- All observed rows are presently present in the only currency infobox.
 
 Value conventions:
 - `Code` is a short upper-case code.
@@ -450,7 +450,7 @@ Optional in current flag pages:
 - `Adopted Date`
 
 Value conventions:
-- The country row currently uses a linked property label.
+- The country row presently uses a linked property label.
 - `Proportion` uses ratio format such as `2:3`.
 - `Adopted Date` may stack multiple milestones with `<br>`.
 
@@ -475,12 +475,12 @@ Canonical property order:
 4. `DST`
 
 Mandatory in current usage:
-- All observed rows are currently present in the only time zone infobox.
+- All observed rows are presently present in the only time zone infobox.
 
 Value conventions:
 - `Abbreviation` is a short upper-case code.
 - `Countries` is comma+space separated.
-- `DST` currently uses `Yes` or `No` style values.
+- `DST` presently uses `Yes` or `No` style values.
 
 Mandatory categories:
 - `Time Zones`
@@ -527,7 +527,7 @@ Common optional rows:
 - `Leader`
 - `Population`
 
-Other optional rows currently used:
+Other optional rows presently used:
 - `Crest`
 - `Image`
 - `Map`
@@ -552,8 +552,8 @@ Mandatory categories:
 
 Subtype-specific notes:
 - `Village` pages commonly use `Map` or `Skyview`, and may omit `Leader` or `Population`.
-- `Commune` pages are the only settlement subtype currently using `Motto` and `Image` in the infobox.
-- `Town` currently appears once and uses `Crest`, `Nickname`, `Name Origin`, `Demonym`, `Location`, `Leader`, `Foundation`, and `Population`.
+- `Commune` pages are the only settlement subtype presently using `Motto` and `Image` in the infobox.
+- `Town` presently appears once and uses `Crest`, `Nickname`, `Name Origin`, `Demonym`, `Location`, `Leader`, `Foundation`, and `Population`.
 - `City` pages commonly use `Crest`, `Map` or `Skyview`, and may use `Founder`.
 
 ## County Infobox
@@ -590,7 +590,7 @@ Canonical property order:
 5. `[Time Zone](https://en.wikipedia.org/wiki/Time_zone)`
 
 Mandatory in current administrative-division usage:
-- All observed rows are currently present in the only administrative-division-labelled infobox.
+- All observed rows are presently present in the only administrative-division-labelled infobox.
 
 Value conventions:
 - Territorial subtype names such as `Voivodeship` belong in prose or category taxonomy, not in the infobox type cell.
@@ -605,7 +605,7 @@ Mandatory categories:
 - `[Country]`
 
 ## Castle Infobox
-Legacy header type currently used:
+Legacy header type presently used:
 
 ```md
 | **[Castles](/categories/castles)** | **Castle Name** |
@@ -621,13 +621,13 @@ Canonical property order:
 7. `[Time Zone](https://en.wikipedia.org/wiki/Time_zone)`
 
 Mandatory in current usage:
-- All observed rows are currently present in the only castle infobox.
+- All observed rows are presently present in the only castle infobox.
 
 Legacy note:
 - The current header label is plural: `Castles`.
 
 ## Company Infobox
-Legacy header type currently used:
+Legacy header type presently used:
 
 ```md
 | **[Companies](/categories/companies)** | **Company Name** |
@@ -640,7 +640,7 @@ Canonical property order:
 4. `Founder`
 
 Mandatory in current usage:
-- All observed rows are currently present in the only company infobox.
+- All observed rows are presently present in the only company infobox.
 
 Legacy note:
 - The current header label is plural: `Companies`.
@@ -657,7 +657,7 @@ Canonical property order:
 2. `Country`
 
 Mandatory in current usage:
-- All observed rows are currently present in the only public office infobox.
+- All observed rows are presently present in the only public office infobox.
 
 Mandatory categories:
 - `Public Offices in [Country]` for each listed country
@@ -682,7 +682,7 @@ Canonical property order:
 6. `Description`
 
 Mandatory in current usage:
-- All observed rows are currently present in the only book infobox.
+- All observed rows are presently present in the only book infobox.
 
 ## Ethnic Group Infobox
 Header type:
@@ -703,7 +703,7 @@ Mandatory categories:
 - Any specific ethnonym category represented by the page, such as `[Zaganians](/categories/zaganians)`
 
 ## Untyped Legacy Infoboxes
-Two pages currently use an untyped header row:
+Two pages presently use an untyped header row:
 - `content/crown_of_nucilandia/document.md`
 - `content/great_walnut/document.md`
 
@@ -727,7 +727,7 @@ Observed untyped office-style property order:
 3. `Country`
 4. `Incumbent`
 
-These are legacy exceptions. Do not use a blank infobox type for new pages when an existing typed category can represent the subject.
+These are legacy exceptions. Do not use an empty infobox type for new pages when an existing typed category can represent the subject.
 
 ## Template Selection Rules
 Choose the infobox template using the first-column type label that matches the page subject.

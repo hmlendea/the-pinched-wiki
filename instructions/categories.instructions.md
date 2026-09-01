@@ -1,14 +1,14 @@
 # Category Handling Instructions
 
 ## Scope
-These instructions describe how categories are currently handled in the wiki content.
+These instructions describe how categories are presently handled within the wiki content.
 
-Category-related content is currently stored in:
+Category-related content is presently stored in:
 - `content/categories/<category_slug>/document.md` for category pages.
 - `content/<page_slug>/document.md` for standard pages that are assigned to categories.
 
 ## Category Page Structure
-A category page currently uses this structure:
+A category page presently uses this structure:
 
 ```md
 # Category: <Category Name>
@@ -35,7 +35,7 @@ Conventions:
 - Link format is Markdown: `[Label](/path)`.
 
 ## Category Footer Syntax
-For both standard pages and category pages (for subcategories), the category footer currently follows this pattern:
+For both standard pages and category pages (for subcategories), the category footer presently follows this structure:
 - One empty line.
 - A line containing exactly `<br>`.
 - One empty line.
@@ -47,10 +47,10 @@ The `Categories: ...` list is ordered from most specific to most generic.
 
 Ordering principle:
 - Start with the narrowest, most concrete classification of the page.
-- Continue with broader parent classifications.
-- End with the broadest umbrella context.
+- Continue with more general parent classifications.
+- End with the most general umbrella context.
 
-Typical chain examples currently used:
+Typical chain examples presently used:
 - `Villages in Nucilandia -> Villages -> Settlements in Nucilandia -> Settlements -> Locations in Nucilandia -> Locations -> Nucilandia`
 - `Flags in Nucilandia -> Flags -> Heraldry in Nucilandia -> Heraldry -> Nucilandia`
 - `Communes in Nucilandia -> Communes -> Settlements in Nucilandia -> Settlements -> Locations in Nucilandia -> Locations -> Nucilandia`
@@ -76,7 +76,7 @@ Current spacing and indentation conventions are:
 - One empty line is used between major blocks (heading, lists, subcategories, footer).
 - In `Categories: ...`, each category entry is separated by `, ` (comma followed by one space).
 
-## Current Variations In Repository
+## Current Repository Variations
 The current repository includes some deviations that should be treated as existing legacy data, not the preferred baseline:
 - Some pages use `----` instead of `-----` before the `Categories:` line.
 - Some pages omit the `<br>` line before the delimiter.
