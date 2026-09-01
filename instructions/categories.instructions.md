@@ -33,6 +33,7 @@ Conventions:
 - Every bullet uses one leading `-` followed by one space.
 - Subcategory links point to `/categories/...`.
 - Link format is Markdown: `[Label](/path)`.
+- Category pages must not contain a `[toc]` line.
 
 ## Category Footer Syntax
 For both standard pages and category pages (for subcategories), the category footer presently follows this structure:

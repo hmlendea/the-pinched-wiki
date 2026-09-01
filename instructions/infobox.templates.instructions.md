@@ -25,6 +25,7 @@ Category derivation rules by infobox family:
 - `Political Party`: require `Political Parties`, `Political Parties in [Country]`, any categories implied by the party type when applicable, and `[Country]`.
 - `Administrative Divisions`: require the administrative-division subtype category, the administrative-division subtype per-country category when the country is identifiable, `Administrative Divisions`, `Administrative Divisions in [Country]`, `Locations`, `Locations in [Country]`, and `[Country]`.
 - `Public Office`: require `Public Offices`, `Public Offices in [Country]`, any categories implied by the office type when applicable, and `[Country]`.
+- `Person`: require `Persons`, `Persons in [Country]` when countries are listed in `Citizenship`, `Race_plural in [Country]` when race and country are identifiable, and `[Country]`.
 - `Ethnic Group`: require `Ethnic Groups` and any more specific ethnonym or people-group category when the page defines one.
 - `Time Zone`: require `Time Zones`, `Time Zones in [Country]` when countries are listed, and `[Country]`.
 - `Language`: require `Languages`, `Languages in [Country]` when countries are listed, and `[Country]`.
@@ -83,7 +84,7 @@ Distinct typed infobox labels presently present in first header cells:
 - `[Flag](/categories/flags)`
 - `[Time Zone](/categories/time_zones)`
 - `[Deity](/categories/deities)`
-- `[Person](/categories/people)`
+- `[Person](/categories/persons)`
 - `[Language](/categories/languages)`
 - `[Administrative Divisions](/categories/administrative_divisions)`
 - `[County](/categories/counties)`
@@ -273,25 +274,23 @@ Mandatory categories:
 Header type:
 
 ```md
-| [Person](/categories/people) | Person Name |
+| [Person](/categories/persons) *(Race)* | Person Name |
 ```
 
 Canonical property order:
 1. `Portrait`
-2. `Race`
-3. `Username`
-4. `Birth`
-5. `Citizen of`
-6. `Current Offices`
-7. `Main Office`
-8. `Political Party`
-9. `Main Residence`
-10. `Family`
-11. `Faith`
+2. `Username`
+3. `Birth`
+4. `Citizenship`
+5. `Current Offices`
+6. `Main Office`
+7. `Political Party`
+8. `Main Residence`
+9. `Family`
+10. `Faith`
 
 Mandatory in all current person pages:
-- `Race`
-- `Citizen of`
+- `Citizenship`
 
 Common optional rows:
 - `Portrait`
@@ -307,10 +306,17 @@ Other optional rows presently used:
 - `Faith`
 
 Value conventions:
+- Put the race value in italics directly after the infobox type link in the first header cell, for example `[Person](/categories/persons) *(Cat)*`.
 - `Username` may prefix the platform, for example `**[NuciCraft](/nucicraft)**: Username`.
-- `Citizen of` usually stacks entries with `<br>`.
+- `Citizenship` usually stacks entries with `<br>`.
 - Office rows typically include date ranges or `since ...` qualifiers in italics.
 - Current person pages use a non-bold type label and a non-bold display name in the header row.
+
+Mandatory categories:
+- `Persons in [Country]` for each listed country in `Citizenship`
+- `Race_plural in [Country]` for each listed country in `Citizenship`
+- `Persons`
+- `[Country]` for each listed country in `Citizenship`
 
 ## Deity Infobox
 Header type:

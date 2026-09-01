@@ -1,10 +1,11 @@
 # Page Instructions
 
 ## Scope
-These instructions apply to all wiki pages stored as `content/*/document.md` and `content/categories/*/document.md`.
+These instructions apply to standard wiki pages stored as `content/*/document.md`.
+Category pages in `content/categories/*/document.md` follow `instructions/categories.instructions.md`.
 
 ## Required `[toc]` Placement
-Every page must contain exactly one standalone `[toc]` line.
+Every standard page must contain exactly one standalone `[toc]` line.
 
 Placement requirement:
 - The `[toc]` line must appear at the end of the page's main top-tier section.
