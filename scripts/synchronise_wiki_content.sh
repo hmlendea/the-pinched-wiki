@@ -1,0 +1,178 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+readonly REMOTE_PATH_SUFFIX='/db/nucicraft-wiki/data/documents/'
+readonly RSYNC_COMMON_OPTIONS='--archive --compress --human-readable --update'
+
+print_error_and_exit() {
+    local ERROR_MESSAGE="${1}"
+    echo "[ERROR] ${ERROR_MESSAGE}" >&2
+    exit 1
+}
+
+validate_dependencies() {
+    if ! command -v rsync >/dev/null 2>&1; then
+        print_error_and_exit 'The command rsync is not installed.'
+    fi
+
+    if ! command -v sshpass >/dev/null 2>&1; then
+        print_error_and_exit 'The command sshpass is not installed. Install it and re-run this script.'
+    fi
+}
+
+print_usage() {
+    echo 'Usage: ./scripts/synchronise_wiki_content.sh [--hostname HOSTNAME|-h HOSTNAME] [--port PORT|-p PORT] [--username USERNAME|--user USERNAME|-u USERNAME]'
+}
+
+parse_arguments() {
+    while [[ $# -gt 0 ]]; do
+        case "${1}" in
+            --hostname|-h)
+                if [[ $# -lt 2 ]]; then
+                    print_error_and_exit 'The --hostname/-h argument requires a value.'
+                fi
+                SSH_HOSTNAME="${2}"
+                shift 2
+                ;;
+            --port|-p)
+                if [[ $# -lt 2 ]]; then
+                    print_error_and_exit 'The --port/-p argument requires a value.'
+                fi
+                SSH_PORT="${2}"
+                shift 2
+                ;;
+            --username|--user|-u)
+                if [[ $# -lt 2 ]]; then
+                    print_error_and_exit 'The --username/--user/-u argument requires a value.'
+                fi
+                SSH_USERNAME="${2}"
+                shift 2
+                ;;
+            --help)
+                print_usage
+                exit 0
+                ;;
+            *)
+                print_error_and_exit "Unknown argument: ${1}. Use --help for usage information."
+                ;;
+        esac
+    done
+}
+
+prompt_missing_connection_details() {
+    if [[ -z "${SSH_HOSTNAME}" ]]; then
+        read -r -p 'SSH hostname: ' SSH_HOSTNAME
+    fi
+
+    if [[ -z "${SSH_PORT}" ]]; then
+        read -r -p 'SSH port: ' SSH_PORT
+    fi
+}
+
+default_username_if_missing() {
+    if [[ -z "${SSH_USERNAME}" ]]; then
+        SSH_USERNAME="${USER:-}"
+    fi
+
+    if [[ -z "${SSH_USERNAME}" ]]; then
+        SSH_USERNAME="$(id -un)"
+    fi
+}
+
+prompt_password() {
+    read -r -s -p 'SSH password: ' SSH_PASSWORD
+    echo
+}
+
+validate_connection_details() {
+
+    if [[ -z "${SSH_HOSTNAME}" ]]; then
+        print_error_and_exit 'Hostname cannot be empty.'
+    fi
+
+    if [[ -z "${SSH_PORT}" ]]; then
+        print_error_and_exit 'Port cannot be empty.'
+    fi
+
+    if [[ ! "${SSH_PORT}" =~ ^[0-9]+$ ]]; then
+        print_error_and_exit 'Port must be numeric.'
+    fi
+
+    if [[ -z "${SSH_USERNAME}" ]]; then
+        print_error_and_exit 'Username cannot be empty.'
+    fi
+
+    if [[ -z "${SSH_PASSWORD}" ]]; then
+        print_error_and_exit 'Password cannot be empty.'
+    fi
+}
+
+determine_paths() {
+    SCRIPT_DIRECTORY="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+    REPOSITORY_ROOT_DIRECTORY="$(cd "${SCRIPT_DIRECTORY}/.." && pwd)"
+    LOCAL_CONTENT_DIRECTORY="${REPOSITORY_ROOT_DIRECTORY}/content"
+    REMOTE_CONTENT_DIRECTORY="/home/${SSH_USERNAME}${REMOTE_PATH_SUFFIX}"
+}
+
+ensure_local_content_directory_exists() {
+    if [[ ! -d "${LOCAL_CONTENT_DIRECTORY}" ]]; then
+        echo "Creating local content directory: ${LOCAL_CONTENT_DIRECTORY}"
+        mkdir -p "${LOCAL_CONTENT_DIRECTORY}"
+    fi
+}
+
+create_remote_directory() {
+    SSHPASS="${SSH_PASSWORD}" sshpass -e ssh \
+        -p "${SSH_PORT}" \
+        -o StrictHostKeyChecking=accept-new \
+        "${SSH_USERNAME}@${SSH_HOSTNAME}" \
+        "mkdir -p \"${REMOTE_CONTENT_DIRECTORY}\""
+}
+
+download_remote_newer_and_missing_files() {
+    SSHPASS="${SSH_PASSWORD}" sshpass -e rsync ${RSYNC_COMMON_OPTIONS} \
+        -e "ssh -p ${SSH_PORT} -o StrictHostKeyChecking=accept-new" \
+        "${SSH_USERNAME}@${SSH_HOSTNAME}:${REMOTE_CONTENT_DIRECTORY}" \
+        "${LOCAL_CONTENT_DIRECTORY}/"
+}
+
+upload_local_newer_and_missing_files() {
+    SSHPASS="${SSH_PASSWORD}" sshpass -e rsync ${RSYNC_COMMON_OPTIONS} \
+        -e "ssh -p ${SSH_PORT} -o StrictHostKeyChecking=accept-new" \
+        "${LOCAL_CONTENT_DIRECTORY}/" \
+        "${SSH_USERNAME}@${SSH_HOSTNAME}:${REMOTE_CONTENT_DIRECTORY}"
+}
+
+main() {
+    local SSH_HOSTNAME=''
+    local SSH_PORT=''
+    local SSH_USERNAME=''
+    local SSH_PASSWORD=''
+    local SCRIPT_DIRECTORY=''
+    local REPOSITORY_ROOT_DIRECTORY=''
+    local LOCAL_CONTENT_DIRECTORY=''
+    local REMOTE_CONTENT_DIRECTORY=''
+
+    validate_dependencies
+    parse_arguments "$@"
+    default_username_if_missing
+    prompt_missing_connection_details
+    prompt_password
+    validate_connection_details
+    determine_paths
+    ensure_local_content_directory_exists
+
+    echo 'Preparing remote wiki directory.'
+    create_remote_directory
+
+    echo 'Synchronising remote changes to local content.'
+    download_remote_newer_and_missing_files
+
+    echo 'Synchronising local changes to the remote wiki.'
+    upload_local_newer_and_missing_files
+
+    echo 'Synchronisation complete.'
+}
+
+main "$@"
