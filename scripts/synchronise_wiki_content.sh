@@ -115,9 +115,10 @@ determine_paths() {
     REMOTE_CONTENT_DIRECTORY="/home/${SSH_USERNAME}${REMOTE_PATH_SUFFIX}"
 }
 
-validate_local_content_directory() {
+ensure_local_content_directory_exists() {
     if [[ ! -d "${LOCAL_CONTENT_DIRECTORY}" ]]; then
-        print_error_and_exit "Local directory does not exist: ${LOCAL_CONTENT_DIRECTORY}"
+        echo "Creating local content directory: ${LOCAL_CONTENT_DIRECTORY}"
+        mkdir -p "${LOCAL_CONTENT_DIRECTORY}"
     fi
 }
 
@@ -160,7 +161,7 @@ main() {
     prompt_password
     validate_connection_details
     determine_paths
-    validate_local_content_directory
+    ensure_local_content_directory_exists
 
     echo 'Preparing remote wiki directory.'
     create_remote_directory

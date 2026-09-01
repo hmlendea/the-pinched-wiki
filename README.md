@@ -9,6 +9,7 @@ The script performs bidirectional synchronisation based on modification timestam
 - It downloads files that are newer on the server than local.
 - It uploads files that are missing on the server.
 - It uploads files that are newer locally than on the server.
+- It creates the local `content/` directory automatically when it does not exist.
 
 The script prompts once, at the beginning, for:
 - SSH hostname
