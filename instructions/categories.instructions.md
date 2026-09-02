@@ -36,6 +36,8 @@ Conventions:
 - Subcategory links point to `/categories/...`.
 - Link format is Markdown: `[Label](/path)`.
 - Category pages must not contain a `[toc]` line.
+- Sort the list of primary category members alphabetically by visible page title.
+- Sort the list of subcategories alphabetically by visible category title.
 
 ## Category Footer Syntax
 For both standard pages and category pages (for subcategories), the category footer presently follows this structure:
@@ -78,6 +80,13 @@ Current spacing and indentation conventions are:
 - Nested list items (when present in non-category pages) use two spaces per level.
 - One empty line is used between major blocks (heading, lists, subcategories, footer).
 - In `Categories: ...`, each category entry is separated by `, ` (comma followed by one space).
+
+## First-Mention Links
+Within each section, link the first mention of every country, language, person, and locality, including when no corresponding wiki page currently exists. Use the canonical page path that the page would use when created.
+
+Within each section, also link the first mention of every other subject that has a corresponding wiki page.
+
+Real-world countries and languages link to their English Wikipedia articles. In-world countries and languages link to their corresponding wiki pages.
 
 ## Current Repository Variations
 The current repository includes some deviations that should be treated as existing legacy data, not the preferred baseline:

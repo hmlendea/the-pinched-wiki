@@ -40,3 +40,17 @@ Compliance notes:
 
 ## Table Header Formatting
 In every Markdown table, bold the main value in every cell of the header row. This includes both the type and display-name cells of an infobox header.
+
+## First-Mention Links
+Within each section, link the first mention of every country, language, person, and locality, including when no corresponding wiki page currently exists. Use the canonical page path that the page would use when created.
+
+Within each section, also link the first mention of every other subject that has a corresponding wiki page.
+
+Real-world countries and languages link to their English Wikipedia articles. In-world countries and languages link to their corresponding wiki pages.
+
+Example:
+
+```md
+[Romanian](https://en.wikipedia.org/wiki/Romanian_language)
+[Nucilandia](/nucilandia)
+```

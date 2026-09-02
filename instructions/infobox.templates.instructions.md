@@ -20,7 +20,7 @@ General rules:
 - Legacy pages may presently be missing some of these categories, but new and revised pages must satisfy the rules below.
 
 Category derivation rules by infobox family:
-- `Locality`: require the locality subtype category, the locality subtype per-country category when the country is identifiable, `Localities`, `Localities in [Country]`, `Locations`, `Locations in [Country]`, and `[Country]`.
+- `Locality`: require `[Status] [Subtype_plural] in [Country]`, `[Status] Localities`, `[Status] Localities in [Country]` when the country is identifiable, the locality subtype category, the locality subtype per-country category when the country is identifiable, `Localities`, `Localities in [Country]`, `Locations`, `Locations in [Country]`, and `[Country]`.
 - `Institution`: require `Institutions`, any categories implied by the institution type in the header, and `[Country]`.
 - `Political Party`: require `Political Parties`, `Political Parties in [Country]`, any categories implied by the party type when applicable, and `[Country]`.
 - `Administrative Division`: require the administrative-division subtype category, the administrative-division subtype per-country category when the country is identifiable, `Administrative Divisions`, `Administrative Divisions in [Country]`, `Locations`, `Locations in [Country]`, and `[Country]`.
@@ -49,6 +49,7 @@ Formatting conventions presently used:
 - The infobox is the first table in the document.
 - The header row has exactly two cells.
 - The first header cell contains the bolded infobox type, usually as a category link. Italic qualifiers may follow the bolded primary value.
+- For `Person` infoboxes, link both the primary type and the subtype in the first header cell to their corresponding categories, using `**[Person](/categories/persons)** *([Human](/categories/humans))*` for human persons.
 - The second header cell contains the bolded page display title. Italic qualifiers may follow the bolded primary value.
 - Property names are usually bolded in the first column.
 - Bold the primary value in every cell of every table header row.
@@ -333,12 +334,12 @@ Canonical property order:
 1. `Icon`
 2. `Nickname`
 3. `Religion`
-4. `God of`
+4. `Domain`
 5. `Day`
 
 Mandatory in all current deity pages:
 - `Religion`
-- `God of`
+- `Domain`
 
 Optional in current deity pages:
 - `Icon`
@@ -499,12 +500,12 @@ Mandatory categories:
 Header type:
 
 ```md
-| **[Locality](/categories/localities)** *(Village)* | **Locality Name** *(Optional alternate name)* |
+| **[Locality](/categories/localities)** *([Village](/categories/villages))* | **Locality Name** *(Optional alternate name)* |
 ```
 
 Subtype suffix rules:
 - Keep the subtype in italics and parentheses immediately after the Locality link.
-- Do not link the subtype.
+- Link the subtype to its corresponding category page.
 - Use one of these subtype values: `Village`, `Commune`, `Town`, `City`.
 
 Canonical property order:
@@ -516,15 +517,17 @@ Canonical property order:
 6. `Motto`
 7. `Name Origin`
 8. `Demonym`
-9. `Coordinates`
-10. `Location`
-11. `Leader`
-12. `Foundation`
-13. `Population` with snapshot qualifier when available
-14. `[Time Zone](https://en.wikipedia.org/wiki/Time_zone)`
+9. `Status`
+10. `Coordinates`
+11. `Location`
+12. `Leader`
+13. `Foundation`
+14. `Population` with snapshot qualifier when available
+15. `[Time Zone](https://en.wikipedia.org/wiki/Time_zone)`
 
 Core rows observed across the locality family:
 - `Demonym`
+- `Status`
 - `Location`
 - `Foundation`
 - `[Time Zone](https://en.wikipedia.org/wiki/Time_zone)`
@@ -545,6 +548,7 @@ Other optional rows presently used:
 - `Founder`
 
 Value conventions:
+- `Status` is mandatory and uses exactly one of these values: `Active`, `Abandoned`, `Defunct`.
 - `Location` moves from smaller to larger territorial units and uses comma+space separation.
 - `Population` often keeps the census date in the property label.
 - `Foundation` may include founder information in parentheses.
@@ -555,6 +559,9 @@ Demographic history requirement:
 - Each population record in the demographic-history table must also appear as a dated event in `## Timeline`.
 
 Mandatory categories:
+- `[Status] [Subtype_plural] in [Country]`, such as `Active Villages in Nucilandia`
+- `[Status] Localities in [Country]`
+- `[Status] Localities`
 - `[Subtype] in [Country]`, such as `Villages in Nucilandia`
 - `[Subtype]`, such as `Villages`
 - `Localities in [Country]`
