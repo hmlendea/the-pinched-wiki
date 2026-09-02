@@ -8,7 +8,7 @@ Category-related content is presently stored in:
 - `content/<page_slug>/document.md` for standard pages that are assigned to categories.
 
 ## Category Page Structure
-A category page presently uses this structure:
+A category page uses this structure:
 
 ```md
 # Category: <Category Name>
@@ -27,8 +27,10 @@ Categories: [Parent Category](/categories/parent_category)
 ```
 
 Conventions:
-- The top heading is exactly `# Category: <Name>`.
-- Primary category members are listed as top-level bullets.
+- Every category page contains exactly one level-one heading, which is exactly `# Category: <Name>`.
+- The list of primary category members appears directly below the title heading.
+- All category sections after the primary list use `##`; use `###` and lower levels only for sections nested within those category sections.
+- Do not use another `#` heading anywhere in a category page.
 - `## Subcategories` is optional and appears only when necessary.
 - Every bullet uses one leading `-` followed by one space.
 - Subcategory links point to `/categories/...`.
@@ -52,9 +54,9 @@ Ordering principle:
 - End with the most general umbrella context.
 
 Typical chain examples presently used:
-- `Villages in Nucilandia -> Villages -> Settlements in Nucilandia -> Settlements -> Locations in Nucilandia -> Locations -> Nucilandia`
+- `Villages in Nucilandia -> Villages -> Localities in Nucilandia -> Localities -> Locations in Nucilandia -> Locations -> Nucilandia`
 - `Flags in Nucilandia -> Flags -> Heraldry in Nucilandia -> Heraldry -> Nucilandia`
-- `Communes in Nucilandia -> Communes -> Settlements in Nucilandia -> Settlements -> Locations in Nucilandia -> Locations -> Nucilandia`
+- `Communes in Nucilandia -> Communes -> Localities in Nucilandia -> Localities -> Locations in Nucilandia -> Locations -> Nucilandia`
 
 Formatting for ordering:
 - Keep the order on a single `Categories: ` line.

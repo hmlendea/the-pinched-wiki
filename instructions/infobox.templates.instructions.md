@@ -20,10 +20,10 @@ General rules:
 - Legacy pages may presently be missing some of these categories, but new and revised pages must satisfy the rules below.
 
 Category derivation rules by infobox family:
-- `Settlement`: require the settlement subtype category, the settlement subtype per-country category when the country is identifiable, `Settlements`, `Settlements in [Country]`, `Locations`, `Locations in [Country]`, and `[Country]`.
-- `Institution`: require `Institutions`, any categories implied by the `Type` row, and `[Country]`.
+- `Locality`: require the locality subtype category, the locality subtype per-country category when the country is identifiable, `Localities`, `Localities in [Country]`, `Locations`, `Locations in [Country]`, and `[Country]`.
+- `Institution`: require `Institutions`, any categories implied by the institution type in the header, and `[Country]`.
 - `Political Party`: require `Political Parties`, `Political Parties in [Country]`, any categories implied by the party type when applicable, and `[Country]`.
-- `Administrative Divisions`: require the administrative-division subtype category, the administrative-division subtype per-country category when the country is identifiable, `Administrative Divisions`, `Administrative Divisions in [Country]`, `Locations`, `Locations in [Country]`, and `[Country]`.
+- `Administrative Division`: require the administrative-division subtype category, the administrative-division subtype per-country category when the country is identifiable, `Administrative Divisions`, `Administrative Divisions in [Country]`, `Locations`, `Locations in [Country]`, and `[Country]`.
 - `Public Office`: require `Public Offices`, `Public Offices in [Country]`, any categories implied by the office type when applicable, and `[Country]`.
 - `Person`: require `Persons`, `Persons in [Country]` when countries are listed in `Citizenship`, `Race_plural in [Country]` when race and country are identifiable, and `[Country]`.
 - `Ethnic Group`: require `Ethnic Groups` and any more specific ethnonym or people-group category when the page defines one.
@@ -48,10 +48,10 @@ The baseline infobox structure is:
 Formatting conventions presently used:
 - The infobox is the first table in the document.
 - The header row has exactly two cells.
-- The first header cell contains the infobox type, usually as a category link.
-- The second header cell contains the page display title.
+- The first header cell contains the bolded infobox type, usually as a category link. Italic qualifiers may follow the bolded primary value.
+- The second header cell contains the bolded page display title. Italic qualifiers may follow the bolded primary value.
 - Property names are usually bolded in the first column.
-- Most typed infobox headers use bolded type links, but some legacy pages use non-bold type links.
+- Bold the primary value in every cell of every table header row.
 - One space is used on both sides of the cell content: `| value |`.
 - The separator row usually uses `| --- | --- |`, although some pages align the dashes for visual width.
 - Internal line breaks inside values use `<br>`.
@@ -64,7 +64,7 @@ Formatting conventions presently used:
 
 ## Naming And Value Conventions
 Conventions presently visible across infoboxes:
-- Settlement and territorial pages usually use title case property names such as `Nickname`, `Demonym`, `Location`, `Leader`, `Foundation`.
+- Locality and territorial pages usually use title case property names such as `Nickname`, `Demonym`, `Location`, `Leader`, `Foundation`.
 - Country pages use mixed naming, including linked labels such as `[Flag](/flag_of_nucilandia)` and `[Time Zone](https://en.wikipedia.org/wiki/Time_zone)`.
 - Population rows often encode the snapshot date in the property label itself, for example `**Population** *(2024)*` or `**Population** *(2026-08-21)*`.
 - Dates appear in mixed formats in current content:
@@ -74,11 +74,15 @@ Conventions presently visible across infoboxes:
 - Country, institution, party, and public office rows often use wiki links for the principal entities.
 - Role qualifiers are commonly italicised in parentheses, for example `*([President](/president))*`.
 - Alternate-language names in the title cell are commonly italicised and may be placed after a `<br>`.
+- For every `Leader` property, place the linked office title in an italic qualifier in the first column, for example `**Leader** *([Palatine](/palatine))*`.
+- Link the leader office title to its intended page even when that page does not yet exist.
+- If the leader's term start date is known, append it to the linked leader name in the second column as `*(since Human-readable date)*`, for example `[Hori](/hori) *(since 29 June 2023)*`.
+- If an infobox template contains an `Established` or `Foundation` property and its date is unknown, use `**Unknown**` as the complete property value.
 
 ## Typed Infobox Inventory
 Distinct typed infobox labels presently present in first header cells:
 - `[Institution](/categories/institutions)`
-- `[Settlement](/categories/settlements)`
+- `[Locality](/categories/localities)`
 - `[Country](/categories/countries)`
 - `[Political Party](/categories/political_parties)`
 - `[Flag](/categories/flags)`
@@ -86,7 +90,7 @@ Distinct typed infobox labels presently present in first header cells:
 - `[Deity](/categories/deities)`
 - `[Person](/categories/persons)`
 - `[Language](/categories/languages)`
-- `[Administrative Divisions](/categories/administrative_divisions)`
+- `[Administrative Division](/categories/administrative_divisions)`
 - `[County](/categories/counties)`
 - `[Religion](/categories/religions)`
 - `[Currency](/categories/currencies)`
@@ -98,7 +102,7 @@ Legacy typed label variants presently present:
 - `[Castles](/categories/castles)` on `content/horidava/document.md`
 - `[Companies](/categories/companies)` on `content/imhe_incorporated/document.md`
 
-For new settlement content, use the merged Settlement label with an italic subtype suffix in the first header cell.
+For new locality content, use the merged Locality label with an italic subtype suffix in the first header cell.
 
 ## Country Infobox
 Header type:
@@ -148,7 +152,7 @@ Optional in current country pages:
 - `Social Media`
 
 Value conventions:
-- `Leader` may include the office in italicised parentheses.
+- Format `Leader` according to the shared leader-property rules, with the linked office title in the first column.
 - `Established` may stack multiple milestones with `<br>`.
 - `Official Languages` are comma+space separated.
 - `Population` keeps the date or year in the property label, not only in the value.
@@ -160,35 +164,34 @@ Mandatory categories:
 Header type:
 
 ```md
-| **[Institution](/categories/institutions)** | **Institution Name** <br> *(Optional local-language name)* |
+| **[Institution](/categories/institutions)** *(Institution Type)* | **Institution Name** <br> *(Optional local-language name)* |
 ```
 
 Canonical property order:
 1. `Motto`
 2. `Logo`
 3. `Image`
-4. `Type`
-5. `Status`
-6. `Country`
-7. `Headquarters`
-8. `Region Served`
-9. `Established`
-10. `Leader`
-11. `Speaker`
-12. `Appointed by`
-13. `Responsible to`
-14. `Official Language`
-15. `Eligibility`
-16. `Purpose`
-17. `Structure`
-18. `Length of term`
-19. `Voting system`
-20. `Last election`
-21. `Next election`
-22. `Colours`
+4. `Status`
+5. `Country`
+6. `Headquarters`
+7. `Region Served`
+8. `Established`
+9. `Leader`
+10. `Speaker`
+11. `Appointed by`
+12. `Responsible to`
+13. `Official Language`
+14. `Eligibility`
+15. `Purpose`
+16. `Structure`
+17. `Length of term`
+18. `Voting system`
+19. `Last election`
+20. `Next election`
+21. `Colours`
 
 Mandatory in all current institution pages:
-- `Type`
+- Institution type in the first header cell
 - `Country`
 - `Established`
 
@@ -205,8 +208,10 @@ Subtype-specific optional rows presently used:
 - `Speaker`, `Structure`, `Length of term`, `Voting system`, `Last election`, `Next election`
 
 Value conventions:
+- Put the institution type in italics and parentheses directly after the Institution link in the first header cell, for example `[Institution](/categories/institutions) *(Central Bank)*`.
+- Do not include a separate `Type` property row.
 - Use `Logo` or `Image` according to the subject's current precedent.
-- `Headquarters` usually uses `Settlement, Country` order with wiki links.
+- `Headquarters` usually uses `Locality, Country` order with wiki links.
 - `Established` may include founders in parentheses.
 - Multi-holder leadership stacks entries with `<br>`.
 - `Colours` are always rendered with coloured squares via inline HTML plus a textual colour name or code.
@@ -214,7 +219,7 @@ Value conventions:
 Mandatory categories:
 - `Institutions`
 - `[Country]`
-- Type-specific categories derived from the `Type` row
+- Type-specific categories derived from the institution type in the header
 
 ## Political Party Infobox
 Header type:
@@ -274,7 +279,7 @@ Mandatory categories:
 Header type:
 
 ```md
-| [Person](/categories/persons) *(Race)* | Person Name |
+| **[Person](/categories/persons)** *(Race)* | **Person Name** |
 ```
 
 Canonical property order:
@@ -282,12 +287,11 @@ Canonical property order:
 2. `Username`
 3. `Birth`
 4. `Citizenship`
-5. `Current Offices`
-6. `Main Office`
-7. `Political Party`
-8. `Main Residence`
-9. `Family`
-10. `Faith`
+5. `Main Office`
+6. `Political Party`
+7. `Main Residence`
+8. `Family`
+9. `Faith`
 
 Mandatory in all current person pages:
 - `Citizenship`
@@ -300,7 +304,6 @@ Common optional rows:
 - `Main Residence`
 
 Other optional rows presently used:
-- `Current Offices`
 - `Main Office`
 - `Family`
 - `Faith`
@@ -309,8 +312,9 @@ Value conventions:
 - Put the race value in italics directly after the infobox type link in the first header cell, for example `[Person](/categories/persons) *(Cat)*`.
 - `Username` may prefix the platform, for example `**[NuciCraft](/nucicraft)**: Username`.
 - `Citizenship` usually stacks entries with `<br>`.
-- Office rows typically include date ranges or `since ...` qualifiers in italics.
-- Current person pages use a non-bold type label and a non-bold display name in the header row.
+- When a person holds an active office, use only one `Main Office` row for their most representative active office. Do not include `Current Offices`, `Former Offices`, or a multi-office list in the infobox.
+- When the start date of the `Main Office` term is known, append it in human-readable form as `*(since Human-readable date)*`, for example `[Great Walnut](/great_walnut) of [Nucilandia](/nucilandia) *(since 21 May 2020)*`.
+- Record every office held by a person, including the main office, in a `### Held Offices` section within a `## Legacy` section in the article body. Use one top-level list item per office, with the office, institution or jurisdiction, and a parenthesised date range.
 
 Mandatory categories:
 - `Persons in [Country]` for each listed country in `Citizenship`
@@ -322,7 +326,7 @@ Mandatory categories:
 Header type:
 
 ```md
-| [Deity](/categories/deities) | Deity Name |
+| **[Deity](/categories/deities)** | **Deity Name** |
 ```
 
 Canonical property order:
@@ -342,7 +346,6 @@ Optional in current deity pages:
 - `Day`
 
 Value conventions:
-- The current deity pages use non-bold type and title cells.
 - `Day` is used only when the deity has an associated weekday.
 
 Mandatory categories:
@@ -380,7 +383,7 @@ Mandatory categories:
 Header type:
 
 ```md
-| [Language](/categories/languages) | Language Name |
+| **[Language](/categories/languages)** | **Language Name** |
 ```
 
 Canonical property order:
@@ -395,7 +398,6 @@ Mandatory in current usage:
 Value conventions:
 - `Name` stores the endonym or alternate self-name, not a repetition of the page title.
 - `Countries` may list one or more linked polities.
-- Current language pages use non-bold type and title cells.
 
 Mandatory categories:
 - `Languages`
@@ -493,15 +495,15 @@ Mandatory categories:
 - `Time Zones in [Country]` for each listed country when such categories are part of the taxonomy
 - `[Country]` for each listed country
 
-## Settlement Infobox
+## Locality Infobox
 Header type:
 
 ```md
-| **[Settlement](/categories/settlements)** *(Village)* | **Settlement Name** *(Optional alternate name)* |
+| **[Locality](/categories/localities)** *(Village)* | **Locality Name** *(Optional alternate name)* |
 ```
 
 Subtype suffix rules:
-- Keep the subtype in italics and parentheses immediately after the Settlement link.
+- Keep the subtype in italics and parentheses immediately after the Locality link.
 - Do not link the subtype.
 - Use one of these subtype values: `Village`, `Commune`, `Town`, `City`.
 
@@ -521,7 +523,7 @@ Canonical property order:
 13. `Population` with snapshot qualifier when available
 14. `[Time Zone](https://en.wikipedia.org/wiki/Time_zone)`
 
-Core rows observed across the settlement family:
+Core rows observed across the locality family:
 - `Demonym`
 - `Location`
 - `Foundation`
@@ -547,18 +549,30 @@ Value conventions:
 - `Population` often keeps the census date in the property label.
 - `Foundation` may include founder information in parentheses.
 
+Demographic history requirement:
+- Every locality page with dated population data must contain a `## Demographics` section immediately before `## Timeline`.
+- The section must contain a two-column table with `**Date**` and `**Population**` headers, with one chronological row for each dated population record.
+- Each population record in the demographic-history table must also appear as a dated event in `## Timeline`.
+
 Mandatory categories:
 - `[Subtype] in [Country]`, such as `Villages in Nucilandia`
 - `[Subtype]`, such as `Villages`
-- `Settlements in [Country]`
-- `Settlements`
+- `Localities in [Country]`
+- `Localities`
 - `Locations in [Country]`
 - `Locations`
 - `[Country]`
 
+Timeline requirement:
+- Every locality page must contain a `## Timeline` section as its final content section. When a `## See Also` section exists, place `## Timeline` immediately before it.
+- Record notable dated events as chronological bullet points in the format `- YYYY-MM-DD: Event.`; use a year or year-month only when the available source material is no more precise.
+- Include the foundation, construction, population records, and other significant documented events when dates are available.
+- Record every known start and conclusion date for each locality leader's term as a separate chronological event.
+- Use events such as `- 2023-06-29: [Hori](/hori) became [Palatine](/palatine) of the locality.` and `- 2024-01-16: [Hori](/hori)'s term as [Palatine](/palatine) concluded.`.
+
 Subtype-specific notes:
 - `Village` pages commonly use `Map` or `Skyview`, and may omit `Leader` or `Population`.
-- `Commune` pages are the only settlement subtype presently using `Motto` and `Image` in the infobox.
+- `Commune` pages are the only locality subtype presently using `Motto` and `Image` in the infobox.
 - `Town` presently appears once and uses `Crest`, `Nickname`, `Name Origin`, `Demonym`, `Location`, `Leader`, `Foundation`, and `Population`.
 - `City` pages commonly use `Crest`, `Map` or `Skyview`, and may use `Founder`.
 
@@ -581,12 +595,17 @@ Mandatory in all current county pages:
 - `Leader`
 - `Time Zone`
 
-## Administrative Divisions Infobox
+## Administrative Division Infobox
 Header type:
 
 ```md
-| **[Administrative Divisions](/categories/administrative_divisions)** | **Administrative Division Name** *(Optional alternate name)* |
+| **[Administrative Division](/categories/administrative_divisions)** *({Type})* | **Administrative Division Name** *(Optional alternate name)* |
 ```
+
+Subtype suffix rules:
+- Keep the administrative division type in italics and parentheses immediately after the Administrative Division link.
+- Do not link the type.
+- Replace `{Type}` with the specific division type, for example `Voivodeship`.
 
 Canonical property order:
 1. `Nickname`
@@ -596,10 +615,11 @@ Canonical property order:
 5. `[Time Zone](https://en.wikipedia.org/wiki/Time_zone)`
 
 Mandatory in current administrative-division usage:
-- All observed rows are presently present in the only administrative-division-labelled infobox.
+- Administrative division type in the first header cell
+- All observed property rows are presently present in the only Administrative Division infobox.
 
 Value conventions:
-- Territorial subtype names such as `Voivodeship` belong in prose or category taxonomy, not in the infobox type cell.
+- Territorial subtype names such as `Voivodeship` belong in the italic type qualifier in the first header cell.
 
 Mandatory categories:
 - `[Subtype] in [Country]`, such as `Voivodeships in Nucilandia`
@@ -739,7 +759,7 @@ These are legacy exceptions. Do not use an empty infobox type for new pages when
 Choose the infobox template using the first-column type label that matches the page subject.
 
 Selection guidance:
-- Use `Country`, `Administrative Divisions`, `County`, `Settlement`, and the existing legacy `Castles` label for territorial subjects.
+- Use `Country`, `Administrative Division`, `County`, `Locality`, and the existing legacy `Castles` label for territorial subjects.
 - Use `Institution` for organisations and state bodies.
 - Use `Political Party` for party entities.
 - Use `Person` for individual people.
