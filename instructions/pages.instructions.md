@@ -42,9 +42,13 @@ Compliance notes:
 In every Markdown table, bold the main value in every cell of the header row. This includes both the type and display-name cells of an infobox header.
 
 ## First-Mention Links
-Within each section, link the first mention of every country, language, person, and locality, including when no corresponding wiki page currently exists. Use the canonical page path that the page would use when created.
+Within each section's body content, link the first mention of every country, language, person, and locality, including when no corresponding wiki page currently exists. Do not count a section heading or a table cell as a mention. Use the canonical page path that the page would use when created.
 
-Within each section, also link the first mention of every other subject that has a corresponding wiki page.
+Within each section's body content, also link the first mention of every other subject that has a corresponding wiki page. Do not link subsequent mentions of the same subject within that section.
+
+Each section and subsection has an independent first-mention scope. A link in a parent, child, or sibling section does not affect whether the first body-text mention in another section must be linked.
+
+In tables, hyperlink every mention of a subject that has a corresponding wiki page. Table links do not satisfy or alter the first-mention-link requirement for prose body content.
 
 Real-world countries and languages link to their English Wikipedia articles. In-world countries and languages link to their corresponding wiki pages.
 
