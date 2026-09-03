@@ -78,7 +78,7 @@ Conventions presently visible across infoboxes:
 - For every `Leader` property, place the linked office title in an italic qualifier in the first column, for example `**Leader** *([Palatine](/palatine))*`.
 - Link the leader office title to its intended page even when that page does not yet exist.
 - If the leader's term start date is known, append it to the linked leader name in the second column as `*(since Human-readable date)*`, for example `[Hori](/hori) *(since 29 June 2023)*`.
-- If an infobox template contains an `Established` or `Foundation` property and its date is unknown, use `**Unknown**` as the complete property value.
+- If an infobox template contains an `Established` or `Foundation` property and its date is unknown, use `*Unknown*` as the complete property value.
 
 ## Typed Infobox Inventory
 Distinct typed infobox labels presently present in first header cells:
@@ -127,9 +127,10 @@ Canonical property order:
 12. `Currency`
 13. `[Time Zone](https://en.wikipedia.org/wiki/Time_zone)`
 14. `Date Format`
-15. `Drives On`
-16. `Official Website`
-17. `Social Media`
+15. `[Internet Domain](https://en.wikipedia.org/wiki/Domain_name)`
+16. `Drives On`
+17. `Official Website`
+18. `Social Media`
 
 Mandatory in all current country pages:
 - `Flag`
@@ -149,6 +150,7 @@ Mandatory in all current country pages:
 Optional in current country pages:
 - `Demonym`
 - `Currency`
+- `Internet Domain`
 - `Official Website`
 - `Social Media`
 
