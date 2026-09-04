@@ -43,6 +43,10 @@ Compliance notes:
 
 ## Table Header Formatting
 In every Markdown table, bold the main value in every cell of the header row. This includes both the type and display-name cells of an infobox header.
+In infobox header rows, keep the second cell as plain text for the current page title and do not link it.
+
+## Timeline Date Format
+When a page contains a `## Timeline` section, each timeline bullet must start with a date in `YYYY-MM-DD` format whenever the exact date is known.
 
 ## First-Mention Links
 Never link a page to itself. This applies to every mention of the page's title or aliases, including mentions in prose and tables.

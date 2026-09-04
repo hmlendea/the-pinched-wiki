@@ -23,7 +23,7 @@ Category derivation rules by infobox family:
 - `Locality`: require `[Status] [Subtype_plural] in [Country]`, `[Status] Localities`, `[Status] Localities in [Country]` when the country is identifiable, the locality subtype category, the locality subtype per-country category when the country is identifiable, `Localities`, `Localities in [Country]`, `Locations`, `Locations in [Country]`, and `[Country]`.
 - `Institution`: require `Institutions`, any categories implied by the institution type in the header, and `[Country]`.
 - `Political Party`: require `Political Parties`, `Political Parties in [Country]`, any categories implied by the party type when applicable, and `[Country]`.
-- `Administrative Division`: require the administrative-division subtype category, the administrative-division subtype per-country category when the country is identifiable, `Administrative Divisions`, `Administrative Divisions in [Country]`, `Locations`, `Locations in [Country]`, and `[Country]`.
+- `Administrative Division`: require `[Status] [Type_plural]`, `[Status] [Type_plural] in [Country]` when the country is identifiable, the administrative-division subtype category, the administrative-division subtype per-country category when the country is identifiable, `Administrative Divisions`, `Administrative Divisions in [Country]`, `Locations`, `Locations in [Country]`, and `[Country]`.
 - `Public Office`: require `Public Offices`, `Public Offices in [Country]`, any categories implied by the office type when applicable, and `[Country]`.
 - `Person`: require `Persons`, `Persons in [Country]` when countries are listed in `Citizenship`, `Race_plural in [Country]` when race and country are identifiable, and `[Country]`.
 - `Ethnic Group`: require `Ethnic Groups` and any more specific ethnonym or people-group category when the page defines one.
@@ -50,13 +50,14 @@ Formatting conventions presently used:
 - The header row has exactly two cells.
 - The first header cell contains the bolded infobox type, usually as a category link. Italic qualifiers may follow the bolded primary value.
 - For `Person` infoboxes, link both the primary type and the subtype in the first header cell to their corresponding categories, using `**[Person](/categories/persons)** *([Human](/categories/humans))*` for human persons.
-- The second header cell contains the bolded page display title. Italic qualifiers may follow the bolded primary value.
+- The second header cell contains the bolded page display title as plain text, not a link. Italic qualifiers may follow the bolded primary value.
 - Property names are usually bolded in the first column.
 - Bold the primary value in every cell of every table header row.
 - One space is used on both sides of the cell content: `| value |`.
 - The separator row usually uses `| --- | --- |`, although some pages align the dashes for visual width.
 - Internal line breaks inside values use `<br>`.
 - Links use normal Markdown link syntax.
+- Never link the current page to itself, including in infobox header title cells.
 - Images use inline HTML `<img ...>` tags inside the value cell.
 - Multi-value rows usually use one of these formats:
   - comma+space separated values for compact lists;
@@ -78,7 +79,12 @@ Conventions presently visible across infoboxes:
 - For every `Leader` property, place the linked office title in an italic qualifier in the first column, for example `**Leader** *([Palatine](/palatine))*`.
 - Link the leader office title to its intended page even when that page does not yet exist.
 - If the leader's term start date is known, append it to the linked leader name in the second column as `*(since Human-readable date)*`, for example `[Hori](/hori) *(since 29 June 2023)*`.
+- If an office title or style changes while the officeholder remains the same person, keep the original term start date for continuity instead of resetting `since` to the title-change date.
 - If an infobox template contains an `Established` or `Foundation` property and its date is unknown, use `*Unknown*` as the complete property value.
+- For every `Administrative Division` infobox, include a `Seat` property.
+- For every `Administrative Division` infobox, the subtype in the first header cell must link to the subtype category, for example `*([Prefecture](/categories/prefectures))*`.
+- For every `Administrative Division` infobox, `Established` must use a human-readable date format such as `1 September 2026`, or `*Unknown*` when the date is unknown.
+- Every administrative unit page must include a `## Timeline` section. Record all status, title, and naming-style transitions there.
 
 ## Typed Infobox Inventory
 Distinct typed infobox labels presently present in first header cells:
