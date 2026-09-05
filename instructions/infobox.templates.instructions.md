@@ -85,6 +85,7 @@ Conventions presently visible across infoboxes:
 - For every `Administrative Division` infobox, the subtype in the first header cell must link to the subtype category, for example `*([Prefecture](/categories/prefectures))*`.
 - For every `Administrative Division` infobox, `Established` must use a human-readable date format such as `1 September 2026`, or `*Unknown*` when the date is unknown.
 - Every administrative unit page must include a `## Timeline` section. Record all status, title, and naming-style transitions there.
+- In person-page `Held Offices` lists, append `succeeding ...` for known predecessors and `preceding ...` for known successors whenever repository content substantiates those successions. When both are known, include both in the same held-office entry.
 
 ## Typed Infobox Inventory
 Distinct typed infobox labels presently present in first header cells:

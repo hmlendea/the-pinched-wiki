@@ -48,6 +48,11 @@ In infobox header rows, keep the second cell as plain text for the current page 
 ## Timeline Date Format
 When a page contains a `## Timeline` section, each timeline bullet must start with a date in `YYYY-MM-DD` format whenever the exact date is known.
 For person pages, record every held office's known start and conclusion dates as separate chronological timeline events.
+When a timeline bullet records that a term began, identify the predecessor in the same bullet whenever the predecessor is known from repository content.
+When a timeline bullet records that a term concluded, identify the successor in the same bullet whenever the successor is known from repository content.
+For locality pages, do not add `succeeding ...`, `preceding ...`, or `was succeeded by ...` to timeline bullets. Instead, record separate entries for the outgoing officeholder's term conclusion and the incoming officeholder's accession.
+When a locality page records a leadership transition, include both entries whenever both facts are known.
+Do not place those timeline-specific predecessor or successor qualifiers in infobox rows or ordinary prose when the same succession fact is being recorded as a timeline event. Held-office summary lists may continue to record both predecessor and successor relationships when known.
 
 ## First-Mention Links
 Never link a page to itself. This applies to every mention of the page's title or aliases, including mentions in prose and tables.
