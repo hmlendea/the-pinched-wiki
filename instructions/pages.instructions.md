@@ -47,6 +47,7 @@ In infobox header rows, keep the second cell as plain text for the current page 
 
 ## Timeline Date Format
 When a page contains a `## Timeline` section, each timeline bullet must start with a date in `YYYY-MM-DD` format whenever the exact date is known.
+For person pages, record every held office's known start and conclusion dates as separate chronological timeline events.
 
 ## First-Mention Links
 Never link a page to itself. This applies to every mention of the page's title or aliases, including mentions in prose and tables.

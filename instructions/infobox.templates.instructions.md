@@ -324,6 +324,7 @@ Value conventions:
 - When a person holds an active office, use only one `Main Office` row for their most representative active office. Do not include `Current Offices`, `Former Offices`, or a multi-office list in the infobox.
 - For an ongoing `Main Office` term, append its start date as `*(since DD Month YYYY)*`, for example `[Great Walnut](/great_walnut) of [Nucilandia](/nucilandia) *(since 21 May 2020)*`. Use `???` when the start date is unknown. Do not use `until` in `Main Office` values.
 - Record every office held by a person, including the main office, in a `### Held Offices` section within a `## Legacy` section in the article body. Use one top-level list item per office, with the office, institution or jurisdiction, and a parenthesised date range in the form `DD Month YYYY — DD Month YYYY` or `DD Month YYYY — present` for an ongoing term. Replace an unknown start or conclusion date with `???`; for example, `??? — 01 February 2020` or `01 January 2012 — ???`. Do not use `since` or `until` in `Held Offices` entries.
+- For every held office with a known start or conclusion date, record each boundary in the person's `## Timeline` as a separate chronological event. Create a final `## Timeline` section when the page has none.
 - Use full dates for all `Main Office` and `Held Offices` term dates, with the month written in full; for example, `05 March 2018`. Do not use ISO, slash-separated, abbreviated-month, or year-only dates when the complete date is known.
 
 Mandatory categories:
