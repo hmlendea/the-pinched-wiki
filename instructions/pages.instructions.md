@@ -1,7 +1,7 @@
 # Page Instructions
 
 ## Scope
-These instructions apply to standard wiki pages stored as `content/*/document.md`.
+These instructions apply to standard wiki pages stored as `content/*/document.md`, including currency pages stored as `content/currencies/<page_slug>/document.md`, flag pages stored as `content/flags/<page_slug>/document.md`, institution pages stored as `content/institutions/<page_slug>/document.md`, administrative unit pages stored as `content/administrative_units/<page_slug>/document.md`, political party pages stored as `content/political_parties/<page_slug>/document.md`, deity pages stored as `content/deities/<page_slug>/document.md`, vessel pages stored as `content/vessels/<page_slug>/document.md`, person pages stored as `content/persons/<page_slug>/document.md`, and locality pages stored as `content/localities/<page_slug>/document.md`.
 Category pages in `content/categories/*/document.md` follow `instructions/categories.instructions.md`.
 
 ## Document Structure

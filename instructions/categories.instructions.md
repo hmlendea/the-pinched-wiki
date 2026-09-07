@@ -5,7 +5,16 @@ These instructions describe how categories are presently handled within the wiki
 
 Category-related content is presently stored in:
 - `content/categories/<category_slug>/document.md` for category pages.
-- `content/<page_slug>/document.md` for standard pages that are assigned to categories.
+- `content/<page_slug>/document.md` for non-locality standard pages that are assigned to categories.
+- `content/currencies/<currency_slug>/document.md` for currency pages that are assigned to categories.
+- `content/flags/<flag_slug>/document.md` for flag pages that are assigned to categories.
+- `content/institutions/<institution_slug>/document.md` for institution pages that are assigned to categories.
+- `content/administrative_units/<unit_slug>/document.md` for administrative unit pages that are assigned to categories.
+- `content/political_parties/<party_slug>/document.md` for political party pages that are assigned to categories.
+- `content/deities/<deity_slug>/document.md` for deity pages that are assigned to categories.
+- `content/vessels/<vessel_slug>/document.md` for vessel pages that are assigned to categories.
+- `content/persons/<person_slug>/document.md` for person pages that are assigned to categories.
+- `content/localities/<locality_slug>/document.md` for locality pages that are assigned to categories.
 
 ## Category Page Structure
 A category page uses this structure:
@@ -59,6 +68,7 @@ Typical chain examples presently used:
 - `Villages in Nucilandia -> Villages -> Localities in Nucilandia -> Localities -> Locations in Nucilandia -> Locations -> Nucilandia`
 - `Flags in Nucilandia -> Flags -> Heraldry in Nucilandia -> Heraldry -> Nucilandia`
 - `Communes in Nucilandia -> Communes -> Localities in Nucilandia -> Localities -> Locations in Nucilandia -> Locations -> Nucilandia`
+- `Diplomatic Yachts in Nucilandia -> Diplomatic Yachts -> Vessels in Nucilandia -> Vessels -> Nucilandia`
 
 Formatting for ordering:
 - Keep the order on a single `Categories: ` line.
