@@ -52,6 +52,8 @@ When a timeline bullet records that a term began, identify the predecessor in th
 When a timeline bullet records that a term concluded, identify the successor in the same bullet whenever the successor is known from repository content.
 For locality pages, do not add `succeeding ...`, `preceding ...`, or `was succeeded by ...` to timeline bullets. Instead, record separate entries for the outgoing officeholder's term conclusion and the incoming officeholder's accession.
 When a locality page records a leadership transition, include both entries whenever both facts are known.
+When a territorial reform changes a locality leader's office style without changing the officeholder, preserve the original leadership start date in the locality infobox and record the style change as a separate reform timeline event.
+For person pages, when a territorial reform changes an officeholder's style without changing the officeholder, represent the continuous term in the infobox and Held Offices list as the current office followed by `as [Former Style] until [Reform Date]`. Record the style transition as a separate timeline event beginning `Under the territorial-administrative reform of [Country]`.
 Do not place those timeline-specific predecessor or successor qualifiers in infobox rows or ordinary prose when the same succession fact is being recorded as a timeline event. Held-office summary lists may continue to record both predecessor and successor relationships when known.
 
 ## First-Mention Links
